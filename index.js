@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Firebase Admin Initialization
-const serviceAccount = require('C:\\Users\\Acer\\Desktop\\HA Backend\\heart-attack-detector-a1965-firebase-adminsdk-f28kh-bb431639a3.json');
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
