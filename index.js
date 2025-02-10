@@ -36,19 +36,19 @@ app.post("/api/data", (req, res) => {
   if (
     pulseRate < 60 ||
     pulseRate > 100 ||
-    oxygenLevel < 90 ||
-    motion === false
+    oxygenLevel < 90 
+
   ) {
     console.log("Emergency detected!");
     sendPushNotifications(
       "🚨 Emergency Alert!",
       "Abnormal health readings detected!"
     );
-    if (motion === false) {
-      sendPushNotifications("⚠ Warning!", "Sudden fall detected!");
-    }
+   
   }
- 
+  else if (motion === false) {
+    sendPushNotifications("⚠ Warning!", "Sudden fall detected!");
+  }
   res.status(200).send("Data received");
 });
 
