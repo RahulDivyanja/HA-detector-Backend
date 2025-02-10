@@ -46,7 +46,7 @@ app.post("/api/data", (req, res) => {
     );
    
   }
-  else if (motion === false) {
+  else if (motion === true) {
     sendPushNotifications("⚠ Warning!", "Sudden fall detected!");
   }
   res.status(200).send("Data received");
